@@ -1,0 +1,14 @@
+name: NSE Scraper
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # every hour
+  workflow_dispatch:       # allows manual trigger from Actions tab
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Netlify Scraper Function
+        run: |
+          curl -s https://roaring-seahorse-73680a.netlify.app/.netlify/functions/scraper
